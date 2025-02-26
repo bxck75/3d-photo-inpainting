@@ -265,7 +265,7 @@ def reassign_floating_island(mesh, info_on_pix, image, depth):
     _, label_lost_map = cv2.connectedComponents(lost_map.astype(np.uint8), connectivity=4)
     mask = np.zeros((H, W))
     mask[bord_up:bord_down, bord_left:bord_right] = 1
-    label_lost_map = (label_lost_map * mask).astype(np.int)
+    label_lost_map = (label_lost_map * mask).astype(int)
 
     for i in range(1, label_lost_map.max()+1):
         lost_xs, lost_ys = np.where(label_lost_map == i)
